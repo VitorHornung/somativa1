@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/helloworld")
 def read_root():
-    return {"Olá Python"}
+    return {"Olá, DevOps!!"}
 
 @app.get("/funcaoteste")
 async def funcaoteste():
