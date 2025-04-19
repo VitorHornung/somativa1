@@ -39,6 +39,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Discord Webhook
-        uses: vitormatheus/action-discord-git-webhook@main
+        uses: johnnyhuy/action-discord-git-webhook@main
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
