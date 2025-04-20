@@ -27,9 +27,12 @@ jobs:
         # https://github.com/docker/setup-qemu-action
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      - name: Build
-        uses: docker/build-push-action@v6
-        with:
+      -
+         name: Set up Docker Buildx
+         user: docker/setup-buildx-action@v3
+      -  name: Build
+         uses: docker/build-push-action@v6
+         with:
           context: .
           push: false
           tags: user/app:latest
@@ -39,8 +42,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Discord Webhook
-        uses: snidd1/discord-commits@v1.6
+        uses: Sniddl/discord-commits@v1.6
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          template: "avatar-with-link"
-          include-extras: true
+            template: "avatar-with-link"
+            include-extras: true
