@@ -38,8 +38,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Enviar Notificação ao Discord
+      - name: Send Discord Notification
         uses: Ilshidur/action-discord@v2
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: "Build concluído com sucesso!"
+          message: "Build completed successfully!"
