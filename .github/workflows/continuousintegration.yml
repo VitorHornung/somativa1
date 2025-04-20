@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Send Discord Notification
-        uses: Ilshidur/action-discord@v2
+        uses: Snidd1/action-discord@v2
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           message: "Build completed successfully!"
