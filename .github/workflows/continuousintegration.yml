@@ -38,8 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Send Discord Notification
-        uses: Snidd1/action-discord@v2
+      - name: Run Discord Webhook
+        uses: snidd1/discord-commits@v1.6
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: "Build completed successfully!"
+          template: "avatar-with-link"
+          include-extras: true
