@@ -1,47 +1,13 @@
-name: Continuous Integration ci
+name: Continuous Discord
 on:
-  pull_request:
-    branches:
-      - main
+  - push
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-
-      - name: Python Lint Code Scanning Action
-        uses: advanced-security/python-lint-code-scanning-action@v1.1.2
-        with:
-          linter: pylint
-
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v4
-      -
-        # Add support for more platforms with QEMU (optional)
-        # https://github.com/docker/setup-qemu-action
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-      -
-         name: Set up Docker Buildx
-         user: docker/setup-buildx-action@v3
-      -  name: Build
-         uses: docker/build-push-action@v6
-         with:
-          context: .
-          push: false
-          tags: user/app:latest
-
   discord:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Discord Commits
+      - name: Run Discord Webhook
         uses: Sniddl/discord-commits@v1.5
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
