@@ -8,13 +8,12 @@ import pytest_asyncio
 async def test_root():
     result = await root()
     assert result == {"message": "Hello Olá DevOps!!"}
-async def root():
     
-
+    
 @pytest.mark.asyncio
-async def test_funcao_real():
+async def funcaoteste():
     with patch("src.main.random.randint", return_value=12345):
-        result = await test_funcao_real()
+        result = await funcaoteste()
         assert result == {"teste": True, "num_aleatorio": 12345}
 
 
