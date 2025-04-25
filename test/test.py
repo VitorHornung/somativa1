@@ -7,8 +7,8 @@ import pytest_asyncio
 @pytest.mark.asyncio
 async def test_root():
     result = await root()
-    assert result == {"message": "Hello Olá DevOps!!"}
-    
+    assert result == {"message": "Olá DevOps!!"}
+
     
 @pytest.mark.asyncio
 async def funcaoteste():
@@ -36,7 +36,7 @@ async def test_update_estudante_positivo():
 @pytest.mark.asyncio
 async def test_delete_estudante_negativo():
     result = await delete_estudante(-5)
-    assert result
+    assert not result
 
 @pytest.mark.asyncio
 async def test_delete_estudante_positivo():
