@@ -9,7 +9,7 @@ async def test_root():
     result = await root()
     assert result == {"message": "Olá DevOps!!"}
 
-
+    
 @pytest.mark.asyncio
 async def funcaoteste():
     with patch("src.main.random.randint", return_value=12345):
