@@ -11,11 +11,10 @@ async def test_root():
 
 
 @pytest.mark.asyncio
-async def funcaoteste():
-    with patch("random.randit", return_value=12345):
-        result = await funcaoteste()
-
-    assert result == {"teste": True, "num_aleatorio": 12345}
+async def test_funcao_real():
+    with patch("src.main.random.randint", return_value=12345):
+        result = await test_funcao_real()
+        assert result == {"teste": True, "num_aleatorio": 12345}
 
 
 @pytest.mark.asyncio
